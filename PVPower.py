@@ -33,10 +33,23 @@ plt.title('Ineichen, climatological turbidity')
 
 # plt.show(block = True)
 
+# print(dict(cs['ghi']))
+
 file_csv = open("day-clear.csv" , 'w')
+
+min = 0
 for i in cs['ghi']:
+    min += 1
+    hours = min/60
+#    print(type(i))
+    file_csv.write(str(hours))
+    file_csv.write(";")
     file_csv.write(str(i))
     file_csv.write("\n")
 file_csv.close()
 
+file_read = open("day-clear.csv" , 'r')
+text = file_read.readline(823)
+print(len(text))
+print(text)
 
