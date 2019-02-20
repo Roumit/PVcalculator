@@ -47,9 +47,13 @@ def PVpower(pv_tilt, pv_azimuth, pv_power, pv_num, from_date, to_date, latitude,
     dni = []
     for i in cs['dni']:
         dni.append(i)
-    for i in range(0,241,1):
-        if zenith[i] > 80:
-            dni[i] = dni[i]/10
+
+    # Calculate angle from sun to panel, decrese dni when angle in too small
+
+
+#    for i in range(0,241,1):
+#        if zenith[i] > 80:
+#            dni[i] = dni[i]/10
     dhi = []
     for i in cs['dhi']:
         dhi.append(i)
@@ -108,11 +112,11 @@ def PVpower(pv_tilt, pv_azimuth, pv_power, pv_num, from_date, to_date, latitude,
     return pv_watt
 
 
-Test = PVpower(pv_tilt=40, pv_azimuth=270, pv_power=280, pv_num=100, from_date='2018-02-19', to_date='2018-02-20',
+Test = PVpower(pv_tilt=35, pv_azimuth=270, pv_power=280, pv_num=100, from_date='2018-04-19', to_date='2018-04-20',
                latitude=50, longitude=30.5, temp_cell=30)
-Test_1 = PVpower(pv_tilt=40, pv_azimuth=90, pv_power=280, pv_num=100, from_date='2018-02-19', to_date='2018-02-20',
+Test_1 = PVpower(pv_tilt=35, pv_azimuth=90, pv_power=280, pv_num=100, from_date='2018-04-19', to_date='2018-04-20',
                 latitude=50, longitude=30.5, temp_cell=30)
-Test_2 = PVpower(pv_tilt=35, pv_azimuth=180, pv_power=280, pv_num=200, from_date='2018-02-19', to_date='2018-02-20',
+Test_2 = PVpower(pv_tilt=35, pv_azimuth=180, pv_power=280, pv_num=200, from_date='2018-04-19', to_date='2018-04-20',
                 latitude=50, longitude=30.5, temp_cell=30)
 print(type(Test))
 # Test.plot()
